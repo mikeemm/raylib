@@ -43,7 +43,7 @@ jobs:
         make PLATFORM=PLATFORM_WEB EMSDK_PATH="D:/a/raylib/raylib/emsdk-cache/emsdk-main" RAYLIB_RELEASE_PATH="../build" -B
         cd ..
         
-    - name: Upload libraylib.a as Artifact
+    - name: Upload 'libraylib.a' as Artifact
       uses: actions/upload-artifact@v4
       with:
         name: libraylib.a
