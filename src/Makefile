@@ -256,8 +256,8 @@ ifeq ($(TARGET_PLATFORM),PLATFORM_DRM)
 endif
 ifeq ($(TARGET_PLATFORM),$(filter $(TARGET_PLATFORM),PLATFORM_WEB PLATFORM_WEB_RGFW))
     # On HTML5 OpenGL ES 2.0 is used, emscripten translates it to WebGL 1.0
-    GRAPHICS = GRAPHICS_API_OPENGL_ES2
-    #GRAPHICS = GRAPHICS_API_OPENGL_ES3
+    #GRAPHICS = GRAPHICS_API_OPENGL_ES2
+    GRAPHICS = GRAPHICS_API_OPENGL_ES3
 endif
 ifeq ($(TARGET_PLATFORM),PLATFORM_ANDROID)
     # By default use OpenGL ES 2.0 on Android
@@ -673,8 +673,8 @@ ifeq ($(TARGET_PLATFORM),$(filter $(TARGET_PLATFORM),PLATFORM_WEB PLATFORM_WEB_R
     ifeq ($(RAYLIB_LIBTYPE),SHARED)
 		@echo "WARNING: $(TARGET_PLATFORM) does not support SHARED libraries. Generating STATIC library."
     endif
-	$(AR) rcs $(RAYLIB_RELEASE_PATH)/lib$(RAYLIB_LIB_NAME).web.a $(OBJS)
-	@echo "raylib library generated (lib$(RAYLIB_LIB_NAME).web.a)!"
+	$(AR) rcs $(RAYLIB_RELEASE_PATH)/lib$(RAYLIB_LIB_NAME).a $(OBJS)
+	@echo "raylib library generated (lib$(RAYLIB_LIB_NAME).a)!"
 else
     ifeq ($(RAYLIB_LIBTYPE),SHARED)
         ifeq ($(TARGET_PLATFORM),$(filter $(TARGET_PLATFORM),PLATFORM_DESKTOP_GLFW PLATFORM_DESKTOP_SDL PLATFORM_DESKTOP_RGFW))
