@@ -624,6 +624,7 @@ RLAPI void rlVertex2i(int x, int y);                    // Define one vertex (po
 RLAPI void rlVertex2f(float x, float y);                // Define one vertex (position) - 2 float
 RLAPI void rlVertex3f(float x, float y, float z);       // Define one vertex (position) - 3 float
 RLAPI void rlTexCoord2f(float x, float y);              // Define one vertex (texture coordinate) - 2 float
+RLAPI void rlNormal2f(float x, float y);                // Define one vertex (normal without normalization) - 2 float
 RLAPI void rlNormal3f(float x, float y, float z);       // Define one vertex (normal) - 3 float
 RLAPI void rlColor4ub(unsigned char r, unsigned char g, unsigned char b, unsigned char a); // Define one vertex (color) - 4 byte
 RLAPI void rlColor3f(float x, float y, float z);        // Define one vertex (color) - 3 float
@@ -1579,6 +1580,15 @@ void rlTexCoord2f(float x, float y)
 {
     RLGL.State.texcoordx = x;
     RLGL.State.texcoordy = y;
+}
+
+// Define one vertex (normal without normalization)
+// NOTE: Used to add secondary texture coordinates without further modifying the batch system
+void rlNormal2f(float x, float y)
+{
+    RLGL.State.normalx = x;
+    RLGL.State.normaly = y;
+    RLGL.State.normalz = 0;
 }
 
 // Define one vertex (normal)
